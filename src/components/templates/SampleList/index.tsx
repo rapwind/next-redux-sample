@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Link from "next/link";
+import SampleList from "~/components/organisms/SampleList";
 import SampleEntity from "~/entities/SampleEntity";
 import styles from "./styles.module.css";
 
@@ -16,17 +16,7 @@ const SampleListTemplate: FC<Props> = ({ loading, error, items }) => (
         {loading ? "ローディング中…" : ""}
         {error ? "失敗しました" : ""}
       </h2>
-      <ul>
-        {items.map((item) => (
-          <li key={item.id}>
-            <Link href="/sample/[sampleId]" as={`/sample/${item.id}`}>
-              <a>
-                {item.id}: {item.name}
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <SampleList items={items}></SampleList>
     </main>
   </div>
 );
