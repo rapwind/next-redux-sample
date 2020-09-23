@@ -1,0 +1,13 @@
+import { AxiosInstance } from "axios";
+import MockAdapter from "axios-mock-adapter";
+import { SampleEntity } from "~/entities/Sample";
+import samples from "./samples.json";
+
+const axiosMock = (instance: AxiosInstance): void => {
+  const mock = new MockAdapter(instance, { delayResponse: 2000 });
+  mock.onGet("/api/sample").reply(200, samples);
+  samples.forEach((sample: SampleEntity) => {
+    mock.onGet(`/api/sample/${sample.id}`).reply(200, sample);
+  });
+};
+export default axiosMock;
