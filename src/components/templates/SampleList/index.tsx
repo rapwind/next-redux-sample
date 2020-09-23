@@ -5,13 +5,17 @@ import styles from "./styles.module.css";
 
 type Props = {
   loading?: boolean;
+  error?: boolean;
   items: SampleEntity[];
 };
 
-const SampleListTemplate: FC<Props> = ({ loading, items }) => (
+const SampleListTemplate: FC<Props> = ({ loading, error, items }) => (
   <div className={styles.container}>
     <main>
-      <h2>{loading ? "ローディング中…" : ""}</h2>
+      <h2>
+        {loading ? "ローディング中…" : ""}
+        {error ? "失敗しました" : ""}
+      </h2>
       <ul>
         {items.map((item) => (
           <li key={item.id}>

@@ -10,14 +10,18 @@ const name = "sample";
 
 export type SampleState = {
   loadingList: boolean;
+  loadingListError: boolean;
   loadingFetch: boolean;
+  loadingFetchError: boolean;
   list: SampleEntity[];
   data: SampleEntity;
 };
 
 const initialState: SampleState = {
   loadingList: false,
+  loadingListError: false,
   loadingFetch: false,
+  loadingFetchError: false,
   list: [],
   data: {},
 };
@@ -43,6 +47,7 @@ const sampleSlice = createSlice({
     [listSampleAction.pending.type]: (state: SampleState): SampleState => ({
       ...state,
       loadingList: true,
+      loadingListError: false,
     }),
     [listSampleAction.fulfilled.type]: (
       state: SampleState,
@@ -55,24 +60,27 @@ const sampleSlice = createSlice({
     [listSampleAction.rejected.type]: (state: SampleState): SampleState => ({
       ...state,
       loadingList: false,
+      loadingListError: true,
       list: [],
     }),
     [fetchSampleAction.pending.type]: (state: SampleState): SampleState => ({
       ...state,
       loadingFetch: true,
+      loadingFetchError: false,
     }),
     [fetchSampleAction.fulfilled.type]: (
       state: SampleState,
       action: PayloadAction<FetchSampleResponse>
     ): SampleState => ({
       ...state,
-      data: action.payload,
       loadingFetch: false,
+      data: action.payload,
     }),
     [fetchSampleAction.rejected.type]: (state: SampleState): SampleState => ({
       ...state,
-      data: {},
       loadingFetch: false,
+      loadingFetchError: true,
+      data: {},
     }),
   },
 });

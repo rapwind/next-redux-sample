@@ -8,6 +8,7 @@ import SampleEntity from "~/entities/SampleEntity";
 
 type PageProps = {
   data: SampleEntity;
+  loadingFetchError: boolean;
 };
 
 // SSR
@@ -16,10 +17,11 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
 ): Promise<GetServerSidePropsResult<PageProps>> => {
   const id = context.params.sampleId as string;
   await store.dispatch(fetchSampleAction({ id }));
-  const { data } = store.getState().sample;
+  const { data, loadingFetchError } = store.getState().sample;
   return {
     props: {
       data,
+      loadingFetchError,
     },
   };
 };
@@ -30,7 +32,10 @@ const SampleById: FC<PageProps> = (props: PageProps) => {
       <Head>
         <title>名前: {props.data.name}</title>
       </Head>
-      <SampleDetailTemplate item={props.data}></SampleDetailTemplate>
+      <SampleDetailTemplate
+        error={props.loadingFetchError}
+        item={props.data}
+      ></SampleDetailTemplate>
     </div>
   );
 };

@@ -6,9 +6,10 @@ import { listSampleAction, SampleState } from "~/features/sample/sampleSlice";
 import { RootState } from "~/features/store";
 
 const Sample: FC = () => {
-  const { list, loadingList } = useSelector<RootState, SampleState>(
-    (state) => state.sample
-  );
+  const { list, loadingList, loadingListError } = useSelector<
+    RootState,
+    SampleState
+  >((state) => state.sample);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,6 +23,7 @@ const Sample: FC = () => {
       </Head>
       <SampleListTemplate
         loading={loadingList}
+        error={loadingListError}
         items={list}
       ></SampleListTemplate>
     </div>

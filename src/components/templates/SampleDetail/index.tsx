@@ -4,16 +4,21 @@ import styles from "./styles.module.css";
 
 type Props = {
   loading?: boolean;
+  error?: boolean;
   item: SampleEntity;
 };
 
-const SampleDetailTemplate: FC<Props> = ({ loading, item }) => (
+const SampleDetailTemplate: FC<Props> = ({ loading, error, item }) => (
   <div className={styles.container}>
     <main>
       <h2>{loading ? "ローディング中…" : ""}</h2>
-      <p>
-        {item.id}: {item.name}
-      </p>
+      {error ? (
+        <p>存在しません</p>
+      ) : (
+        <p>
+          {item.id}: {item.name}
+        </p>
+      )}
     </main>
   </div>
 );
