@@ -1,6 +1,6 @@
 import { AxiosInstance } from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { SampleEntity } from "~/entities/Sample";
+import SampleEntity from "~/entities/SampleEntity";
 import samples from "./samples.json";
 
 const axiosMock = (instance: AxiosInstance): void => {

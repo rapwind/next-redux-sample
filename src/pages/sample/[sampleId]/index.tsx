@@ -4,7 +4,7 @@ import Head from "next/head";
 import SampleDetailTemplate from "~/components/templates/SampleDetail";
 import { fetchSampleAction } from "~/features/sample/sampleSlice";
 import store from "~/features/store";
-import { SampleEntity } from "~/entities/Sample";
+import SampleEntity from "~/entities/SampleEntity";
 
 type PageProps = {
   data: SampleEntity;

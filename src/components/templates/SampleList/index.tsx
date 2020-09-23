@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-import { SampleEntity } from "~/entities/Sample";
+import SampleEntity from "~/entities/SampleEntity";
 import styles from "./styles.module.css";
 
 type Props = {

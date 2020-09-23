@@ -4,7 +4,7 @@ import SampleAPI, {
   FetchSampleResponse,
   ListSampleResponse,
 } from "~/api/sample";
-import { SampleEntity } from "~/entities/Sample";
+import SampleEntity from "~/entities/SampleEntity";
 
 const name = "sample";
 

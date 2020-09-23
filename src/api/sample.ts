@@ -1,4 +1,4 @@
-import { SampleEntity } from "~/entities/Sample";
+import SampleEntity from "~/entities/SampleEntity";
 import axios from "~/utils/axios";
 
 export type ListSampleResponse = SampleEntity[];
