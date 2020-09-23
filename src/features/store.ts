@@ -1,4 +1,7 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {
+  combineReducers,
+  configureStore,
+} from "@reduxjs/toolkit";
 import { logger } from "redux-logger";
 
 import sampleSlice from "./sample/sampleSlice";
@@ -8,7 +11,7 @@ export const rootReducer = combineReducers({
 });
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [logger],
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 export type RootState = ReturnType<typeof rootReducer>;
 export default store;

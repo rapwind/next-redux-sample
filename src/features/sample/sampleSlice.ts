@@ -23,20 +23,16 @@ const initialState: SampleState = {
 };
 
 export const listSampleAction = createAsyncThunk<ListSampleResponse, void>(
-  `${name}/list`,
-  async (): Promise<ListSampleResponse> => {
-    return SampleAPI.list();
-  }
+  `${name}/listSampleAction`,
+  (): Promise<ListSampleResponse> => SampleAPI.list()
 );
 
 export const fetchSampleAction = createAsyncThunk<
   FetchSampleResponse,
   FetchSampleRequest
 >(
-  `${name}/fetch`,
-  async (payload): Promise<FetchSampleResponse> => {
-    return SampleAPI.fetch(payload);
-  }
+  `${name}/fetchSampleAction`,
+  (payload): Promise<FetchSampleResponse> => SampleAPI.fetch(payload)
 );
 
 const sampleSlice = createSlice({
