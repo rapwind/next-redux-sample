@@ -1,4 +1,5 @@
-import { FC } from "react";
+// eslint-disable-next-line no-use-before-define
+import React, { FC } from "react";
 import SampleList from "~/components/organisms/SampleList";
 import SampleEntity from "~/entities/SampleEntity";
 import styles from "./styles.module.css";

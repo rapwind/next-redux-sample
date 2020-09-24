@@ -1,4 +1,5 @@
-import { FC } from "react";
+// eslint-disable-next-line no-use-before-define
+import React, { FC } from "react";
 import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import Head from "next/head";
 import SampleDetailTemplate from "~/components/templates/SampleDetail";
