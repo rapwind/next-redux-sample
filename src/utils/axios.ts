@@ -1,14 +1,14 @@
 import axios from "axios";
-import mock from "~/stubs/mock";
 
-// const { MOCK } = process.env;
-const MOCK = true;
+const { MOCK, API_BASE_URL } = process.env;
 
 const axiosInstance = axios.create({
-  baseURL: "/api",
+  baseURL: API_BASE_URL || "/api",
   timeout: 3000,
 });
-if (MOCK) {
+if (MOCK && MOCK === "true") {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require
+  const mock = require("~/stubs/mock").default;
   mock(axiosInstance);
 }
 export default axiosInstance;

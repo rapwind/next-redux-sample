@@ -2,8 +2,8 @@
 import React, { FC } from "react";
 import { GetServerSideProps, GetServerSidePropsResult } from "next";
 import Head from "next/head";
-import SampleDetailTemplate from "~/components/templates/SampleDetail";
-import { fetchSampleAction } from "~/features/sample/sampleSlice";
+import SampleDetail from "~/components/templates/SampleDetail";
+import { actions } from "~/features/sample/sampleSlice";
 import store from "~/features/store";
 import SampleEntity from "~/entities/SampleEntity";
 
@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   context
 ): Promise<GetServerSidePropsResult<PageProps>> => {
   const id = context.params.sampleId as string;
-  await store.dispatch(fetchSampleAction({ id }));
+  await store.dispatch(actions.fetchSampleAction({ id }));
   const { data, loadingFetchError } = store.getState().sample;
   return {
     props: {
@@ -33,10 +33,10 @@ const SampleById: FC<PageProps> = (props: PageProps) => {
       <Head>
         <title>名前: {props.data.name}</title>
       </Head>
-      <SampleDetailTemplate
+      <SampleDetail
         error={props.loadingFetchError}
         item={props.data}
-      ></SampleDetailTemplate>
+      ></SampleDetail>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 module.exports = {
   stories: [
-    "../src/**/*stor@(y|ies).@(ts|tsx)"
+    "../src/**/*.stor@(y|ies).@(ts|tsx)"
   ],
   addons: [
     "@storybook/addon-actions/register",

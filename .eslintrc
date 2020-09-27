@@ -31,6 +31,14 @@
   "rules": {
     "react/jsx-uses-vars": 1,
     "react/jsx-uses-react": 1,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": [
+      "error", {
+      "devDependencies": [
+        "**/*.spec.tsx",
+        "**/*.spec.ts"
+      ],
+      "peerDependencies": false
+    }]
   }
 }

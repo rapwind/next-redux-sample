@@ -1,8 +1,8 @@
 import { FC, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Head from "next/head";
-import SampleListTemplate from "~/components/templates/SampleList";
-import { listSampleAction, SampleState } from "~/features/sample/sampleSlice";
+import SampleList from "~/components/templates/SampleList";
+import { actions, SampleState } from "~/features/sample/sampleSlice";
 import { RootState } from "~/features/store";
 
 const Sample: FC = () => {
@@ -13,7 +13,7 @@ const Sample: FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(listSampleAction());
+    dispatch(actions.listSampleAction());
   }, [dispatch]);
 
   return (
@@ -21,11 +21,11 @@ const Sample: FC = () => {
       <Head>
         <title>一覧</title>
       </Head>
-      <SampleListTemplate
+      <SampleList
         loading={loadingList}
         error={loadingListError}
         items={list}
-      ></SampleListTemplate>
+      ></SampleList>
     </div>
   );
 };

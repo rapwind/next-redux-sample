@@ -1,15 +1,15 @@
 // eslint-disable-next-line no-use-before-define
 import React, { FC } from "react";
-import Link from "next/link";
+import NextLink from "next/link";
 
 type Props = {
   href?: string;
   as?: string;
 };
 
-const LinkAtom: FC<Props> = ({ href, as, children }) => (
-  <Link href={href} as={as}>
+const Link: FC<Props> = ({ href, as, children }) => (
+  <NextLink href={href} as={as}>
     <a>{children}</a>
-  </Link>
+  </NextLink>
 );
-export default LinkAtom;
+export default Link;

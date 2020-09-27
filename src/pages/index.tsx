@@ -1,16 +1,16 @@
 // eslint-disable-next-line no-use-before-define
 import React, { FC } from "react";
 import Head from "next/head";
-import HomeTemplate from "~/components/templates/Home";
+import Home from "~/components/templates/Home";
 
-const Home: FC = () => {
+const HomePage: FC = () => {
   return (
     <div>
       <Head>
         <title>TOP</title>
       </Head>
-      <HomeTemplate></HomeTemplate>
+      <Home></Home>
     </div>
   );
 };
-export default Home;
+export default HomePage;

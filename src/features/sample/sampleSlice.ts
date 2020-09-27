@@ -3,7 +3,7 @@ import SampleAPI, {
   FetchSampleRequest,
   FetchSampleResponse,
   ListSampleResponse,
-} from "~/api/sample";
+} from "~/api/SampleAPI";
 import SampleEntity from "~/entities/SampleEntity";
 
 const name = "sample";
@@ -26,12 +26,12 @@ const initialState: SampleState = {
   data: {},
 };
 
-export const listSampleAction = createAsyncThunk<ListSampleResponse, void>(
+const listSampleAction = createAsyncThunk<ListSampleResponse, void>(
   `${name}/listSampleAction`,
   (): Promise<ListSampleResponse> => SampleAPI.list()
 );
 
-export const fetchSampleAction = createAsyncThunk<
+const fetchSampleAction = createAsyncThunk<
   FetchSampleResponse,
   FetchSampleRequest
 >(
@@ -85,4 +85,9 @@ const sampleSlice = createSlice({
   },
 });
 
+export const actions = {
+  ...sampleSlice.actions,
+  fetchSampleAction,
+  listSampleAction,
+};
 export default sampleSlice;

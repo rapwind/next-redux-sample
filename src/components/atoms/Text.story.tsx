@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-use-before-define
 import React from "react";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import TextAtom from ".";
+import TextAtom from "./Text";
 
 export default {
   title: "Atoms",
