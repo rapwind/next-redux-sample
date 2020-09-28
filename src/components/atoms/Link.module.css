@@ -1,0 +1,5 @@
+.link {
+    font-size: 11pt;
+    color: var(--text-link-color);
+    text-decoration: underline;
+}

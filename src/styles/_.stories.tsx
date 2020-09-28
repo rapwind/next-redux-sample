@@ -2,7 +2,7 @@
 import React from "react";
 
 export default {
-  title: "Colors",
+  title: "Styles",
 };
 
 const Color = ({ color }): JSX.Element => (
