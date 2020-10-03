@@ -85,12 +85,12 @@ describe("sampleSlice", () => {
     };
     const action = {
       type: actions.fetchSampleAction.fulfilled,
-      payload: {...sampleObject},
+      payload: { ...sampleObject },
     };
     const state = sampleSlice.reducer({ ...initialState }, action);
     expect(state).toEqual(
       expect.objectContaining({
-        data: {...sampleObject},
+        data: { ...sampleObject },
         loadingFetch: false,
         loadingFetchError: false,
       })

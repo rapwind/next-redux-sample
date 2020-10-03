@@ -2,11 +2,11 @@
     padding: 0 .5em;
     height: 40px;
     font-size: 11pt;
-    border: solid 1px var(--gray-color);
+    border: solid 1px var(--gray-border-color);
     border-radius: 2px;
 }
 
 .textInput:focus {
-    border: solid 1px var(--primary-color);
+    border: solid 1px var(--text-light-link-color);
     outline: none;
 }

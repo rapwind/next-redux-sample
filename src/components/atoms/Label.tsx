@@ -1,5 +1,15 @@
 // eslint-disable-next-line no-use-before-define
 import React, { FC } from "react";
+import classNames from "classnames";
+import styles from "./Label.module.css";
 
-const Label: FC = ({ children }) => <label data-testid="label">{children}</label>;
+type Props = {
+  className?: string;
+};
+
+const Label: FC<Props> = ({ children, className }) => (
+  <label className={classNames(styles.label, className)} data-testid="label">
+    {children}
+  </label>
+);
 export default Label;

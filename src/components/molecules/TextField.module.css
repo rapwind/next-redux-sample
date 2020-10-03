@@ -1,0 +1,24 @@
+.textField {
+    display: flex;
+    flex-direction: column;
+}
+
+.textFieldLabel {
+}
+
+.textFieldErrorMessage {
+    animation: SlideIn 0.1s;
+    font-size: 10pt;;
+    color: var(--error-color);
+}
+
+@keyframes SlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-1em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

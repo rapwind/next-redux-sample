@@ -10,13 +10,7 @@ import TextInputAtom from "./TextInput";
 
 export default {
   title: "Atoms",
-  component: [
-    TextAtom,
-    LinkAtom,
-    ButtonAtom,
-    LabelAtom,
-    TextInputAtom
-  ],
+  component: [TextAtom, LinkAtom, ButtonAtom, LabelAtom, TextInputAtom],
   decorators: [withKnobs],
 };
 
@@ -31,17 +25,11 @@ export const Link = (): JSX.Element => (
 );
 
 export const Button = (): JSX.Element => (
-  <ButtonAtom>
-    {text("button", "Text")}
-  </ButtonAtom>
+  <ButtonAtom>{text("button", "Text")}</ButtonAtom>
 );
 
 export const Label = (): JSX.Element => (
-  <LabelAtom>
-    {text("label", "Text")}
-  </LabelAtom>
+  <LabelAtom>{text("label", "Text")}</LabelAtom>
 );
 
-export const TextInput = (): JSX.Element => (
-  <TextInputAtom />
-);
+export const TextInput = (): JSX.Element => <TextInputAtom />;

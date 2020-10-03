@@ -1,6 +1,15 @@
 // eslint-disable-next-line no-use-before-define
 import React, { FC } from "react";
+import classNames from "classnames";
 import styles from "./Button.module.css";
 
-const Button: FC = ({ children }) => <button className={styles.button} data-testid="button">{children}</button>;
+type Props = {
+  className?: string;
+};
+
+const Button: FC<Props> = ({ children, className }) => (
+  <button className={classNames(styles.button, className)} data-testid="button">
+    {children}
+  </button>
+);
 export default Button;
