@@ -11,7 +11,7 @@ type Props = {
 const SampleList: FC<Props> = ({ items }) => (
   <ul className={styles.sampleList}>
     {items.map((item) => (
-      <SampleListItem item={item}></SampleListItem>
+      <SampleListItem key={item.id} item={item}></SampleListItem>
     ))}
   </ul>
 );
